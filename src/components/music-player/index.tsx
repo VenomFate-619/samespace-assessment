@@ -2,9 +2,29 @@ import PauseIcon from "@/assets/icons/pause";
 import PlayIcon from "@/assets/icons/play";
 import PrevIcon from "@/assets/icons/prev";
 import ThreeDotsIcon from "@/assets/icons/three-dots";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const url =
+  "https://storage.googleapis.com/similar_sentences/Imagine%20Dragons%20-%20West%20Coast%20(Pendona.com).mp3";
 
 const MusicPlayer = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSong, setCurrentSong] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [mute, SetMute] = useState(false);
+
+  const handlePlay = async () => {
+    if (audioRef?.current) {
+      setIsPlaying(!isPlaying);
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        await audioRef.current.play();
+      }
+    }
+  };
+
   return (
     <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]   row-start-1 lg:row-end-3 row-end-2">
       <p className="text-[32px]  font-bold leading-[36px] text-white">
@@ -16,16 +36,25 @@ const MusicPlayer = () => {
         alt="fwe"
         className="lg:w-[480px] w-full lg:h-[440px] max-h-[440px] rounded-lg"
       />
-      <div className="h-[6px] rounded-sm bg-white mt-6" />
+      <div className="w-full relative">
+        <input type="range" value="" className="seek-bar" />
+      </div>
+
       <div className="flex items-center justify-center w-full py-2 my-4">
         <ThreeDotsIcon className="w-14 h-12 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
 
         <div className="flex items-center justify-center w-full gap-2">
           <PrevIcon className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
-          {true ? (
-            <PauseIcon className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full" />
+          {isPlaying ? (
+            <PauseIcon
+              className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full"
+              onClick={handlePlay}
+            />
           ) : (
-            <PlayIcon className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full" />
+            <PlayIcon
+              className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full"
+              onClick={handlePlay}
+            />
           )}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,6 +75,12 @@ const MusicPlayer = () => {
           <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z" />
         </svg>
       </div>
+
+      <audio
+        autoPlay
+        ref={audioRef}
+        src="https://storage.googleapis.com/similar_sentences/Imagine%20Dragons%20-%20West%20Coast%20(Pendona.com).mp3"
+      />
     </div>
   );
 };

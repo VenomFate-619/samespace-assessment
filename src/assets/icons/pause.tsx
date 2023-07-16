@@ -1,10 +1,17 @@
-const PauseIcon = ({ className }: { className: string }) => {
+const PauseIcon = ({
+  className,
+  ...props
+}: {
+  className: string;
+  props: any;
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
+      {...props}
     >
       <path
         fillRule="evenodd"
@@ -15,4 +22,4 @@ const PauseIcon = ({ className }: { className: string }) => {
   );
 };
 
-export default PauseIcon
+export default PauseIcon;
