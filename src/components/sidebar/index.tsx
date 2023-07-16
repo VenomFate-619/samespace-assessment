@@ -3,7 +3,7 @@ import profile from '@/assets/profile.png'
 
 const SideBar = () => {
   return (
-    <div className="lg:flex lg:flex-col text-center justify-between row-start-1 row-end-3 text-white sticky top-8 h-[calc(100vh-32px)]">
+    <div className="lg:flex hidden lg:flex-col text-center justify-between row-start-1 row-end-3 text-white sticky top-8 h-[calc(100vh-32px)]">
       <div className="flex flex-col">
         <div className="flex justify-between items-center ">
           <img src={spotify_logo} alt="spotify_logo" />

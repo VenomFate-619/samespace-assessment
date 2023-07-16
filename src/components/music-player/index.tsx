@@ -2,10 +2,11 @@ import PauseIcon from "@/assets/icons/pause";
 import PlayIcon from "@/assets/icons/play";
 import PrevIcon from "@/assets/icons/prev";
 import ThreeDotsIcon from "@/assets/icons/three-dots";
+import { useRef, useState } from "react";
 
 const MusicPlayer = () => {
   return (
-    <div className="mx-auto sticky top-8 h-[660px]">
+    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]   row-start-1 lg:row-end-3 row-end-2">
       <p className="text-[32px]  font-bold leading-[36px] text-white">
         Viva La Vida
       </p>
@@ -13,7 +14,7 @@ const MusicPlayer = () => {
       <img
         src="https://i.scdn.co/image/ab67616d0000b2736a6a889eef62af7b190ec713"
         alt="fwe"
-        className="w-[480px] h-[440px] rounded-lg"
+        className="lg:w-[480px] w-full lg:h-[440px] max-h-[440px] rounded-lg"
       />
       <div className="h-[6px] rounded-sm bg-white mt-6" />
       <div className="flex items-center justify-center w-full py-2 my-4">
