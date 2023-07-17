@@ -18,27 +18,27 @@ body {
   background-color: black;
 }
 
-/* .seek-bar{
-    @apply w-full h-5 rounded-sm overflow-hidden cursor-pointer bg-green-500 ;
+.seek-bar {
+  @apply w-full h-[5px] rounded-sm overflow-hidden cursor-pointer bg-[rgba(255,255,255,0.20)] appearance-none;
 
-    &::-webkit-slider-thumb{
-        @apply w-1 h-20 shadow-green-400 appearance-none;
-    }
+  &::-webkit-slider-thumb {
+    @apply w-1 h-[20px] shadow-[-400px_0px_0px_400px_rgba(255,255,255)] appearance-none;
+  }
+}
+
+/* .seek-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.20);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1px;
+  height: 20px;
+  box-shadow: -400px 0 0 400px white;
 } */
-
-.seek-bar{
-    -webkit-appearance: none;
-    width: 100%;
-    height: 5px;
-    border-radius: 10px;
-    background: #7fc8a9;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.seek-bar::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    width: 1px;
-    height: 20px;
-    box-shadow: -400px 0 0 400px white;
-}
