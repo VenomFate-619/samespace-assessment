@@ -1,13 +1,28 @@
-import ss from "@/assets/image-s.png";
 import { GetSong } from "@/types";
 
 interface MusicCardProps {
   song: GetSong;
+  selectSong: (index: number) => void;
+  indexOfSong: number;
+  active: boolean;
 }
 
-const MusicCard = ({song}:MusicCardProps) => {
+const MusicCard = ({
+  song,
+  selectSong,
+  indexOfSong,
+  active,
+}: MusicCardProps) => {
   return (
-    <button className="flex justify-between items-center text-white p-4 w-full rounded-lg hover:bg-tertiary">
+    <button
+      className={
+        "flex justify-between items-center text-white p-4 w-full rounded-lg hover:bg-tertiary " +
+        (active ? "bg-tertiary" : "")
+      }
+      onClick={() => {
+        selectSong(indexOfSong);
+      }}
+    >
       <div className="flex gap-x-4">
         <img
           className="w-12 h-12 rounded-full object-cover"

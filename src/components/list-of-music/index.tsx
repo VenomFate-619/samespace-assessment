@@ -1,17 +1,23 @@
 import searchIcon from "@/assets/search.svg";
 import MusicCard from "../music-card";
-import { useQuery } from "@apollo/client";
-import { GET_SONGS } from "@/query";
+import { GetSong } from "@/types";
+import { useContext } from "react";
+import { AppContext, SongContext } from "@/context/songContext";
 
-const ListOfSongs = () => {
-  const { loading, error, data } = useQuery(GET_SONGS, {
-    variables: {
-      playlistId: 1,
-      search: null,
-    },
-  });
+interface ListOfSongsProps {
+  loading: boolean;
+}
+
+const ListOfSongs = ({ loading }: ListOfSongsProps) => {
+  const { setCurrentSongHandler, currentPlaylist , currentSong } = useContext(
+    AppContext
+  ) as SongContext;
+
+  const selectSong = (index: number) => {
+    setCurrentSongHandler(currentPlaylist[index]);
+  };
+
   if (loading) return <p className="text-red-600">Loading</p>;
-  console.log(data);
 
   return (
     <div className="min-h-[0] overflow-y-auto lg:col-start-2 lg:col-end-3 hide-scrollbar lg:row-start-2 lg:row-end-3 row-start-3 row-end-4">
@@ -23,8 +29,14 @@ const ListOfSongs = () => {
         <img src={searchIcon} alt="search" />
       </div>
       <div className="mt-[25px]">
-        {data?.getSongs.map((item, i) => (
-          <MusicCard key={i}  song={item} />
+        {currentPlaylist.map((item, i) => (
+          <MusicCard
+            key={item._id}
+            song={item}
+            selectSong={selectSong}
+            indexOfSong={i}
+            active={item._id === currentSong?._id }
+          />
         ))}
       </div>
     </div>
