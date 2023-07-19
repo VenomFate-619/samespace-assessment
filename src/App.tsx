@@ -7,11 +7,12 @@ import { useContext } from "react";
 import { GetSong } from "./types";
 import { AppContext, SongContext } from "./context/songContext";
 import { useSearchParams } from "react-router-dom";
+import { playlistName } from "@/constant/navLinks";
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const p = searchParams.get("playlist") ?? 1;
+  const playlistId = searchParams.get("playlist") ?? 1;
 
   const {
     setCurrentPlaylistHandler,
@@ -22,7 +23,7 @@ function App() {
 
   const { loading, error, data } = useQuery(GET_SONGS, {
     variables: {
-      playlistId: Number(p),
+      playlistId: Number(playlistId),
       search: null,
     },
     onCompleted: (data) => {
@@ -41,7 +42,7 @@ function App() {
       <div className="grid lg:grid-cols-[auto_432px_auto] grid-cols-1 lg:grid-rows-[auto_1fr]  grid-rows-[auto_auto_auto] content-start px-8 pt-[20px]">
         <SideBar />
         <p className="capitalizetize text-[32px] font-bold text-white mb-[33px] lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2 row-start-2 row-end-3">
-          For you
+          {playlistName[Number(playlistId) - 1]}
         </p>
         <ListOfSongs
           loading={loading}
