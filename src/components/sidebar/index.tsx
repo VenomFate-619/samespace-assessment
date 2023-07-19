@@ -1,6 +1,14 @@
 import spotify_logo from "@/assets/spotify-logo.svg";
 import profile from "@/assets/profile.png";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const navLink = [
+  { text: "For you", url: "?playlist=1" },
+  { text: "Top Tracks", url: "?playlist=2" },
+  { text: "Favourites", url: "?playlist=3" },
+  { text: "Recently Played", url: "?playlist=4" },
+];
 
 const SideBar = () => {
   return (
@@ -11,30 +19,15 @@ const SideBar = () => {
         </div>
         <nav className="text-left h-full">
           <ul className="flex flex-col py-7 space-y-4">
-            <Link
-              to="/?playlist=1"
-              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
-            >
-              For you
-            </Link>
-            <Link
-              to="/?playlist=2"
-              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
-            >
-              Top tracks
-            </Link>
-            <Link
-              to="/?playlist=3"
-              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
-            >
-              Favourites
-            </Link>
-            <Link
-              to="/?playlist=4"
-              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
-            >
-              Recently Played
-            </Link>
+            {navLink.map((item) => (
+              <NavLink
+                to={item.url}
+                className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
+                key={item.text}
+              >
+                {item.text}
+              </NavLink>
+            ))}
           </ul>
         </nav>
       </div>

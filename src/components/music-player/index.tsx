@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import Progress from "./progress";
 import Controls from "./controls";
 import { GetSong } from "@/types";
+import { useColor } from "color-thief-react";
 
 interface MusicPlayerProps {
   currentSong: GetSong | null;
@@ -9,6 +10,23 @@ interface MusicPlayerProps {
 
 const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const {
+    data: color,
+    loading,
+    error,
+  } = useColor(currentSong?.photo ?? "", "rgbArray", {
+    crossOrigin: "Anonymous",
+  });
+
+  useEffect(() => {
+    if (color) {
+      console.log(color);
+      document.body.style.background = `linear-gradient(160deg , rgb(${color.join(
+        ","
+      )}) 8%, rgba(1,0,2,1) 100%)`;
+    }
+  }, [color]);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   // const [mute, SetMute] = useState(false);
