@@ -31,7 +31,7 @@ const ListOfSongs = ({ loading, setPlaylist, songs }: ListOfSongsProps) => {
         />
         <img src={searchIcon} alt="search" />
       </div>
-      <div className="mt-[25px]">
+      <div className="mt-[25px] space-y-3">
         {songs.map((item, i) => (
           <MusicCard
             key={item._id}

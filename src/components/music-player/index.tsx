@@ -20,10 +20,9 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
 
   useEffect(() => {
     if (color) {
-      console.log(color);
       document.body.style.background = `linear-gradient(160deg , rgb(${color.join(
         ","
-      )}) 8%, rgba(1,0,2,1) 100%)`;
+      )}) 8%, rgba(1,0,2,1) 90%)`;
     }
   }, [color]);
 
