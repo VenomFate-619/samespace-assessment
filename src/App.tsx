@@ -6,21 +6,35 @@ import { GET_SONGS } from "@/query";
 import { useContext } from "react";
 import { GetSong } from "./types";
 import { AppContext, SongContext } from "./context/songContext";
+import { useSearchParams } from "react-router-dom";
 
 function App() {
-  const { setCurrentPlaylistHandler, setCurrentSongHandler, currentSong } =
-    useContext(AppContext) as SongContext;
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const p = searchParams.get("playlist") ?? 1;
+
+  const {
+    setCurrentPlaylistHandler,
+    setCurrentSongHandler,
+    currentSong,
+    currentPlaylist,
+  } = useContext(AppContext) as SongContext;
 
   const { loading, error, data } = useQuery(GET_SONGS, {
     variables: {
-      playlistId: 1,
+      playlistId: Number(p),
       search: null,
     },
     onCompleted: (data) => {
-      setCurrentPlaylistHandler(data?.getSongs as GetSong[]);
-      setCurrentSongHandler(data?.getSongs[0] as GetSong);
+      if (currentPlaylist.length === 0)
+        setCurrentPlaylistHandler(data?.getSongs as GetSong[]);
+      if (!currentSong) setCurrentSongHandler(data?.getSongs[0] as GetSong);
     },
   });
+
+  const setPlaylist = () => {
+    setCurrentPlaylistHandler(data?.getSongs as GetSong[]);
+  };
 
   return (
     <>
@@ -29,7 +43,11 @@ function App() {
         <p className="capitalizetize text-[32px] font-bold text-white mb-[33px] lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2 row-start-2 row-end-3">
           For you
         </p>
-        <ListOfSongs loading={loading} />
+        <ListOfSongs
+          loading={loading}
+          setPlaylist={setPlaylist}
+          songs={data?.getSongs as GetSong[]}
+        />
         <MusicPlayer
           currentSong={currentSong} //TODO remove this
           key={currentSong ? currentSong._id : currentSong}

@@ -6,15 +6,18 @@ import { AppContext, SongContext } from "@/context/songContext";
 
 interface ListOfSongsProps {
   loading: boolean;
+  setPlaylist: () => void;
+  songs: GetSong[];
 }
 
-const ListOfSongs = ({ loading }: ListOfSongsProps) => {
-  const { setCurrentSongHandler, currentPlaylist , currentSong } = useContext(
+const ListOfSongs = ({ loading, setPlaylist, songs }: ListOfSongsProps) => {
+  const { setCurrentSongHandler, currentSong } = useContext(
     AppContext
   ) as SongContext;
 
   const selectSong = (index: number) => {
-    setCurrentSongHandler(currentPlaylist[index]);
+    setCurrentSongHandler(songs[index]);
+    setPlaylist();
   };
 
   if (loading) return <p className="text-red-600">Loading</p>;
@@ -29,13 +32,13 @@ const ListOfSongs = ({ loading }: ListOfSongsProps) => {
         <img src={searchIcon} alt="search" />
       </div>
       <div className="mt-[25px]">
-        {currentPlaylist.map((item, i) => (
+        {songs.map((item, i) => (
           <MusicCard
             key={item._id}
             song={item}
             selectSong={selectSong}
             indexOfSong={i}
-            active={item._id === currentSong?._id }
+            active={item._id === currentSong?._id}
           />
         ))}
       </div>

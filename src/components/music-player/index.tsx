@@ -3,7 +3,9 @@ import Progress from "./progress";
 import Controls from "./controls";
 import { GetSong } from "@/types";
 
-
+interface MusicPlayerProps {
+  currentSong: GetSong | null;
+}
 
 const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -65,7 +67,11 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
       />
       <Progress duration={duration} time={time} handleSeek={handleSeek} />
 
-      <Controls handlePlay={handlePlay} isPlaying={isPlaying} />
+      <Controls
+        handlePlay={handlePlay}
+        isPlaying={isPlaying}
+        currentSong={currentSong}
+      />
 
       <audio
         ref={audioRef}

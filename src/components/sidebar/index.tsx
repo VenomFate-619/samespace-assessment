@@ -1,5 +1,6 @@
-import spotify_logo from "@/assets/spotify-logo.svg"
-import profile from '@/assets/profile.png'
+import spotify_logo from "@/assets/spotify-logo.svg";
+import profile from "@/assets/profile.png";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
@@ -10,18 +11,30 @@ const SideBar = () => {
         </div>
         <nav className="text-left h-full">
           <ul className="flex flex-col py-7 space-y-4">
-            <li className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500">
+            <Link
+              to="/?playlist=1"
+              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
+            >
               For you
-            </li>
-            <li className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500">
-              Top Tracks
-            </li>
-            <li className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500">
+            </Link>
+            <Link
+              to="/?playlist=2"
+              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
+            >
+              Top tracks
+            </Link>
+            <Link
+              to="/?playlist=3"
+              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
+            >
               Favourites
-            </li>
-            <li className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500">
+            </Link>
+            <Link
+              to="/?playlist=4"
+              className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
+            >
               Recently Played
-            </li>
+            </Link>
           </ul>
         </nav>
       </div>

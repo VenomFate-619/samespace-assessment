@@ -2,18 +2,54 @@ import PauseIcon from "@/assets/icons/pause";
 import PlayIcon from "@/assets/icons/play";
 import PrevIcon from "@/assets/icons/prev";
 import ThreeDotsIcon from "@/assets/icons/three-dots";
+import { GetSong } from "@/types";
+import { AppContext, SongContext } from "@/context/songContext";
+import { useContext } from "react";
 
 interface ControlsProps {
   isPlaying: boolean;
   handlePlay: () => void;
+  currentSong: GetSong;
 }
 
-const Controls = ({handlePlay,isPlaying}:ControlsProps) => {
+const Controls = ({ handlePlay, isPlaying, currentSong }: ControlsProps) => {
+  const { currentPlaylist, setCurrentSongHandler } = useContext(
+    AppContext
+  ) as SongContext;
+
+  const prevSongHandler = () => {
+    const currentSongIndex = currentPlaylist
+      .map((song) => song._id)
+      .indexOf(currentSong._id);
+
+    const newIndex =
+      currentSongIndex === 0
+        ? currentPlaylist.length - 1
+        : currentSongIndex - 1;
+
+    setCurrentSongHandler(currentPlaylist[newIndex]);
+  };
+
+  const nextSongHandler = () => {
+    const currentSongIndex = currentPlaylist
+      .map((song) => song._id)
+      .indexOf(String(currentSong?._id) ?? 0);
+
+    const newIndex = (currentSongIndex + 1) % currentPlaylist.length;
+
+    setCurrentSongHandler(currentPlaylist[newIndex]);
+  };
+
+  
+
   return (
     <div className="flex items-center justify-center w-full py-2 my-4">
       <ThreeDotsIcon className="w-14 h-12 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
       <div className="flex items-center justify-center w-full gap-2">
-        <PrevIcon className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+        <PrevIcon
+          className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer"
+          onClick={prevSongHandler}
+        />
         {isPlaying ? (
           <PauseIcon
             className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full"
@@ -30,6 +66,7 @@ const Controls = ({handlePlay,isPlaying}:ControlsProps) => {
           viewBox="0 0 24 24"
           fill="currentColor"
           className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer"
+          onClick={nextSongHandler}
         >
           <path d="M5.055 7.06c-1.25-.714-2.805.189-2.805 1.628v8.123c0 1.44 1.555 2.342 2.805 1.628L12 14.471v2.34c0 1.44 1.555 2.342 2.805 1.628l7.108-4.061c1.26-.72 1.26-2.536 0-3.256L14.805 7.06C13.555 6.346 12 7.25 12 8.688v2.34L5.055 7.06z" />
         </svg>
