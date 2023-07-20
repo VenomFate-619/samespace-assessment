@@ -72,7 +72,7 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
   if (!currentSong) return <p className="text-red-600">Loading</p>;
 
   return (
-    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]   row-start-1 lg:row-end-3 row-end-2">
+    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]   lg:row-start-1 lg:row-end-3 row-start-2 row-end-3">
       <p className="text-[32px]  font-bold leading-[36px] text-white">
         {currentSong?.title}
       </p>

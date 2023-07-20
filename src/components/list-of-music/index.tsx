@@ -23,7 +23,7 @@ const ListOfSongs = ({ loading, setPlaylist, songs }: ListOfSongsProps) => {
 
   
   return (
-    <div className="min-h-[0] overflow-y-auto lg:col-start-2 lg:col-end-3 hide-scrollbar lg:row-start-2 lg:row-end-3 row-start-3 row-end-4">
+    <div className="min-h-[0] overflow-y-auto lg:col-start-2 lg:col-end-3 hide-scrollbar lg:row-start-2 lg:row-end-3 row-start-5 row-end-6">
       <div className="flex items-center rounded-lg bg-[#ffffff14] px-4 py-2 gap-x-2">
         <input
           className="bg-transparent border-none outline-none text-lg text-white flex-1"
