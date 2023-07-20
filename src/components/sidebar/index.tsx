@@ -24,8 +24,9 @@ const SideBar = () => {
               <Link
                 to={item.url}
                 className={mergeClassName(
-                  "text-base font-normal opacity-40 hover:opacity-100 cursor-pointer duration-500 focus-visible:text-white focus-visible:outline-none",
-                  playlistName[Number(playlistId) - 1] === item.text && 'opacity-100'
+                  "text-base font-normal opacity-40 hover:opacity-100 cursor-pointer duration-500 focus-visible:opacity-100 focus-visible:outline-none focus:outline-none outline-none",
+                  playlistName[Number(playlistId) - 1] === item.text &&
+                    "opacity-100"
                 )}
                 key={item.text}
               >

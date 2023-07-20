@@ -3,6 +3,7 @@ import Progress from "./progress";
 import Controls from "./controls";
 import { GetSong } from "@/types";
 import { useColor } from "color-thief-react";
+import Loading from "./loading";
 
 interface MusicPlayerProps {
   currentSong: GetSong | null;
@@ -69,10 +70,11 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
     if (audioRef.current) audioRef.current.currentTime = value;
   };
 
-  if (!currentSong) return <p className="text-red-600">Loading</p>;
+  if (!currentSong) return <Loading />
+  // if(currentSong) return <Loading />
 
   return (
-    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]   lg:row-start-1 lg:row-end-3 row-start-2 row-end-3">
+    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]  lg:row-end-3 row-start-2 row-end-3">
       <p className="text-[32px]  font-bold leading-[36px] text-white">
         {currentSong?.title}
       </p>
