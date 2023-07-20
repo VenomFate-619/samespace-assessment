@@ -6,14 +6,6 @@ export interface SongContext {
   setCurrentSongHandler: (song: GetSong) => void;
   currentPlaylist: GetSong[];
   setCurrentPlaylistHandler: (playlist: GetSong[]) => void;
-  //   duration: 0,
-  //   setDurationHandler: () => {},
-  //   currentTime: "",
-  //   setCurrentTimeHandler: () => {},
-  //   isPlaying: false,
-  //   setIsPlayingHandler: () => {},
-  //   background: "",
-  //   setBackgroundHandler: () => {},
 }
 
 export const AppContext = createContext<SongContext | null>(null);
