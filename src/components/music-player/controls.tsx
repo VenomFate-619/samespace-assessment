@@ -1,10 +1,9 @@
-import PauseIcon from "@/assets/icons/pause";
-import PlayIcon from "@/assets/icons/play";
 import PrevIcon from "@/assets/icons/prev";
 import ThreeDotsIcon from "@/assets/icons/three-dots";
 import { GetSong } from "@/types";
 import { AppContext, SongContext } from "@/context/songContext";
 import { useContext } from "react";
+import { mergeClassName } from "@/utils";
 
 interface ControlsProps {
   isPlaying: boolean;
@@ -40,8 +39,6 @@ const Controls = ({ handlePlay, isPlaying, currentSong }: ControlsProps) => {
     setCurrentSongHandler(currentPlaylist[newIndex]);
   };
 
-  
-
   return (
     <div className="flex items-center justify-center w-full py-2 my-4">
       <ThreeDotsIcon className="w-14 h-12 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
@@ -50,17 +47,18 @@ const Controls = ({ handlePlay, isPlaying, currentSong }: ControlsProps) => {
           className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer"
           onClick={prevSongHandler}
         />
-        {isPlaying ? (
-          <PauseIcon
-            className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full"
-            onClick={handlePlay}
-          />
-        ) : (
-          <PlayIcon
-            className="w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full"
-            onClick={handlePlay}
-          />
-        )}
+
+        <button
+          className={mergeClassName(
+            "play-btn",
+            isPlaying ? "" : "pause"
+          )}
+          onClick={handlePlay}
+        >
+          <span></span>
+          <span></span>
+        </button>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

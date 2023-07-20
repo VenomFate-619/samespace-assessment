@@ -16,7 +16,7 @@ const MusicCard = ({
   return (
     <button
       className={
-        "flex justify-between items-center text-white p-4 w-full rounded-lg hover:bg-tertiary " +
+        "flex justify-between items-center text-white p-4 w-full rounded-lg hover:bg-tertiary focus-visible:bg-tertiary focus-visible:outline-none " +
         (active ? "bg-tertiary" : "")
       }
       onClick={() => {

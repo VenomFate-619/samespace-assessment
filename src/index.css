@@ -16,7 +16,7 @@
 
 body {
   background-color: black;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 .seek-bar {
@@ -43,3 +43,37 @@ body {
   height: 20px;
   box-shadow: -400px 0 0 400px white;
 } */
+
+.play-btn {
+  @apply relative  border-none w-10 h-10 cursor-pointer text-black bg-white p-1 rounded-full;
+}
+
+.play-btn span {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 20px;
+  border-radius: 2px;
+  background: black;
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.play-btn span:nth-child(2) {
+  left: 55%;
+  transform-origin: center;
+}
+
+.play-btn.pause span:nth-child(2) {
+  transform: translateY(-50%) scaleY(0);
+}
+
+.play-btn.pause span:nth-child(1) {
+  width: 35%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+}
