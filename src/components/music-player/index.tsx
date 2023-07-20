@@ -84,7 +84,7 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
       <img
         src={currentSong?.photo}
         alt={currentSong?.title}
-        className="lg:w-[480px] w-full max-h-[440px] rounded-lg fade-in-fwd"
+        className="lg:w-[480px] w-full max-h-[440px] rounded-lg fade-in-fwd object-cover"
       />
       <Progress duration={duration} time={time} handleSeek={handleSeek} />
 

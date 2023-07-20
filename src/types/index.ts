@@ -6,3 +6,7 @@ export interface GetSong {
   title: string;
   photo: string;
 }
+
+export interface QueryData {
+  getSongs: GetSong[];
+}

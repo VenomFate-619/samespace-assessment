@@ -4,7 +4,7 @@ import SideBar from "./components/sidebar";
 import { useQuery } from "@apollo/client";
 import { GET_SONGS } from "@/query";
 import { useContext } from "react";
-import { GetSong } from "./types";
+import { GetSong, QueryData } from "./types";
 import { AppContext, SongContext } from "./context/songContext";
 import { useSearchParams } from "react-router-dom";
 import { playlistName } from "@/constant/navLinks";
@@ -21,15 +21,15 @@ function App() {
     currentPlaylist,
   } = useContext(AppContext) as SongContext;
 
-  const { loading, error, data, refetch } = useQuery(GET_SONGS, {
+  const { loading, error, data, refetch } = useQuery<QueryData>(GET_SONGS, {
     variables: {
       playlistId: Number(playlistId),
       search: "",
     },
     onCompleted: (data) => {
       if (currentPlaylist.length === 0)
-        setCurrentPlaylistHandler(data?.getSongs as GetSong[]);
-      if (!currentSong) setCurrentSongHandler(data?.getSongs[0] as GetSong);
+        setCurrentPlaylistHandler(data?.getSongs);
+      if (!currentSong) setCurrentSongHandler(data?.getSongs[0]);
     },
   });
 
