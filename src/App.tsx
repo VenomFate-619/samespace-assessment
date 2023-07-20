@@ -21,10 +21,10 @@ function App() {
     currentPlaylist,
   } = useContext(AppContext) as SongContext;
 
-  const { loading, error, data } = useQuery(GET_SONGS, {
+  const { loading, error, data, refetch } = useQuery(GET_SONGS, {
     variables: {
       playlistId: Number(playlistId),
-      search: null,
+      search: "",
     },
     onCompleted: (data) => {
       if (currentPlaylist.length === 0)
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <>
-      <div className="grid lg:grid-cols-[auto_432px_auto] grid-cols-1 lg:grid-rows-[auto_1fr]  grid-rows-[auto_auto_auto] content-start px-8 pt-[20px]">
+      <div className="grid lg:grid-cols-[auto_432px_auto] grid-cols-1 lg:grid-rows-[auto_1fr]  grid-rows-[auto_auto_auto] content-start px-8 pt-[20px] fade-in-bck">
         <SideBar />
         <p className="capitalizetize text-[32px] font-bold text-white mb-[33px] lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2 row-start-4 row-end-5">
           {playlistName[Number(playlistId) - 1]}
@@ -48,6 +48,8 @@ function App() {
           loading={loading}
           setPlaylist={setPlaylist}
           songs={data?.getSongs as GetSong[]}
+          refetch={refetch}
+          playlistId={Number(playlistId)}
         />
         <MusicPlayer
           currentSong={currentSong} //TODO remove this

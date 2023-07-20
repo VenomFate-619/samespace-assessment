@@ -4,11 +4,9 @@ import PrevIcon from "@/assets/icons/prev";
 import NextIcon from "@/assets/icons/next";
 import SpeakerIcon from "@/assets/icons/speaker";
 
-
-
 const Loading = () => {
   return (
-    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]    lg:row-end-3 row-start-2 row-end-3 animate-pulse">
+    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]  lg:row-end-3 row-start-2 row-end-3 animate-pulse slide-in-right">
       <div className="flex flex-col text-left w-96">
         <h2 className="h-6 mb-3 bg-slate-200 rounded w-60"></h2>
         <p className="h-3 bg-slate-200 rounded w-32"></p>

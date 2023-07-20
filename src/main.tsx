@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import client from "./apolloClient.ts";
 import App from "./App.tsx";
 import "./index.css";
+import './animation.css'
 import AppContextProvider from "./context/songContext.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

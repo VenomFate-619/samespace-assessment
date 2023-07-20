@@ -1,10 +1,10 @@
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-between  w-full">
-      {[...Array(6)].map((item) => (
+    <div className="flex flex-col items-center justify-between  w-full scale-in-center">
+      {[...Array(6)].map((item, index) => (
         <div
           className="flex items-center justify-between my-2 w-full hover:bg-gray-600 cursor-pointer p-3 rounded-lg duration-500 animate-pulse"
-          key={item}
+          key={index}
         >
           <div className="flex items-center space-x-5">
             <div className="w-12 h-12 rounded-full bg-slate-200"></div>

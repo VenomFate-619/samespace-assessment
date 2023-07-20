@@ -70,11 +70,11 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
     if (audioRef.current) audioRef.current.currentTime = value;
   };
 
-  if (!currentSong) return <Loading />
+  if (!currentSong) return <Loading />;
   // if(currentSong) return <Loading />
 
   return (
-    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]  lg:row-end-3 row-start-2 row-end-3 lg:px-4">
+    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]  lg:row-end-3 row-start-2 row-end-3 lg:px-4 ">
       <p className="text-[32px] font-bold leading-[36px] text-white max-w-[25ch]">
         {currentSong?.title}
       </p>
@@ -82,7 +82,7 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
       <img
         src={currentSong?.photo}
         alt={currentSong?.title}
-        className="lg:w-[480px] w-full max-h-[440px] rounded-lg"
+        className="lg:w-[480px] w-full max-h-[440px] rounded-lg fade-in-fwd"
       />
       <Progress duration={duration} time={time} handleSeek={handleSeek} />
 

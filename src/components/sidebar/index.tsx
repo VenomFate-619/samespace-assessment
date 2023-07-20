@@ -17,7 +17,7 @@ const SideBar = () => {
     : "max-lg:opacity-0 max-lg:max-h-0 transition-all duration-700";
 
   return (
-    <div className="flex lg:flex-col  text-center justify-between row-start-1 lg:row-end-3 row-end-2 text-white lg:sticky lg:top-8 lg:h-[calc(100vh-32px)] lg:py-0 py-4 lg:px-4">
+    <div className="flex lg:flex-col  text-center justify-between row-start-1 lg:row-end-3 row-end-2 text-white lg:sticky lg:top-8 lg:h-[calc(100vh-32px)] lg:py-0 py-4 lg:px-4 slide-in-left">
       <div className="flex flex-col">
         <div className="flex justify-between items-center ">
           <img src={spotify_logo} alt="spotify_logo" />
@@ -44,12 +44,12 @@ const SideBar = () => {
         <div className="h-12 w-12 my-4 hidden lg:block ">
           <img src={profile} alt="profile" />
         </div>
-        <label
-          htmlFor="check"
-          className="menu"
-          
-        >
-          <input type="checkbox" id="check" onChange={() => setMenuClick((prev) => !prev) } />
+        <label htmlFor="check" className="menu lg:hidden">
+          <input
+            type="checkbox"
+            id="check"
+            onChange={() => setMenuClick((prev) => !prev)}
+          />
           <span></span>
           <span></span>
           <span></span>
