@@ -74,15 +74,15 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
   // if(currentSong) return <Loading />
 
   return (
-    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]  lg:row-end-3 row-start-2 row-end-3">
-      <p className="text-[32px]  font-bold leading-[36px] text-white">
+    <div className="lg:mx-auto lg:sticky lg:top-8 lg:h-[660px]  lg:row-end-3 row-start-2 row-end-3 lg:px-4">
+      <p className="text-[32px] font-bold leading-[36px] text-white max-w-[25ch]">
         {currentSong?.title}
       </p>
       <p className="text-base text-secondary mt-2 mb-4">{currentSong?.title}</p>
       <img
         src={currentSong?.photo}
         alt={currentSong?.title}
-        className="lg:w-[480px] w-full lg:h-[440px] max-h-[440px] rounded-lg"
+        className="lg:w-[480px] w-full max-h-[440px] rounded-lg"
       />
       <Progress duration={duration} time={time} handleSeek={handleSeek} />
 

@@ -7,6 +7,9 @@ export default {
         secondary: "rgba(255, 255, 255, 0.6000000238418579)",
         tertiary: "rgba(255, 255, 255, 0.08)",
       },
+      screens: {
+        xs: "360px",
+      },
     },
   },
   plugins: [],

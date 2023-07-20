@@ -12,13 +12,17 @@ const SideBar = () => {
   const [searchParams] = useSearchParams();
   const playlistId = searchParams.get("playlist") ?? 1;
 
+  const navStyle = menuClick
+    ? "opacity-1 max-h-screen transition-all duration-700"
+    : "max-lg:opacity-0 max-lg:max-h-0 transition-all duration-700";
+
   return (
-    <div className="flex lg:flex-col  text-center justify-between row-start-1 lg:row-end-3 row-end-2 text-white lg:sticky lg:top-8 lg:h-[calc(100vh-32px)] lg:py-0 py-4">
+    <div className="flex lg:flex-col  text-center justify-between row-start-1 lg:row-end-3 row-end-2 text-white lg:sticky lg:top-8 lg:h-[calc(100vh-32px)] lg:py-0 py-4 lg:px-4">
       <div className="flex flex-col">
         <div className="flex justify-between items-center ">
           <img src={spotify_logo} alt="spotify_logo" />
         </div>
-        <nav className="text-left h-full hidden lg:block">
+        <nav className={`text-left h-full ${navStyle}`}>
           <ul className="flex flex-col py-7 space-y-4">
             {navLinks.map((item) => (
               <Link
@@ -47,6 +51,9 @@ const SideBar = () => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="h-10 w-10  lg:hidden cursor-pointer"
+          onClick={() => {
+            setMenuClick((prev) => !prev);
+          }}
         >
           <path
             strokeLinecap="round"
