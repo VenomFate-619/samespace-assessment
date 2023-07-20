@@ -43,12 +43,13 @@ const Controls = ({ handlePlay, isPlaying, currentSong }: ControlsProps) => {
 
   return (
     <div className="flex items-center justify-center w-full py-2 my-4">
-      <ThreeDotsIcon className="w-14 h-12 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+      <button>
+        <ThreeDotsIcon className="w-14 h-12 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+      </button>
       <div className="flex items-center justify-center w-full gap-2">
-        <PrevIcon
-          className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer"
-          onClick={prevSongHandler}
-        />
+        <button onClick={prevSongHandler}>
+          <PrevIcon className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+        </button>
 
         <button
           className={mergeClassName("play-btn", isPlaying ? "" : "pause")}
@@ -57,13 +58,13 @@ const Controls = ({ handlePlay, isPlaying, currentSong }: ControlsProps) => {
           <span></span>
           <span></span>
         </button>
-
-        <NextIcon
-          className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer"
-          onClick={nextSongHandler}
-        />
+        <button onClick={nextSongHandler}>
+          <NextIcon className="w-10 h-10 text-gray-200 mx-4 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+        </button>
       </div>
-      <SpeakerIcon className="w-12 h-10 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+      <button>
+        <SpeakerIcon className="w-12 h-10 text-gray-200 p-2 rounded-full hover:bg-gray-500 cursor-pointer" />
+      </button>
     </div>
   );
 };
