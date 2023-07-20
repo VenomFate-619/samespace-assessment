@@ -1,11 +1,17 @@
 import spotify_logo from "@/assets/spotify-logo.svg";
 import profile from "@/assets/profile.png";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { navLinks } from "@/constant/navLinks";
 import { useState } from "react";
+import { mergeClassName } from "@/utils";
+import { useSearchParams } from "react-router-dom";
+import { playlistName } from "@/constant/navLinks";
 
 const SideBar = () => {
   const [menuClick, setMenuClick] = useState(false);
+  const [searchParams] = useSearchParams();
+  const playlistId = searchParams.get("playlist") ?? 1;
+
   return (
     <div className="flex lg:flex-col  text-center justify-between row-start-1 lg:row-end-3 row-end-2 text-white lg:sticky lg:top-8 lg:h-[calc(100vh-32px)] lg:py-0 py-4">
       <div className="flex flex-col">
@@ -15,13 +21,16 @@ const SideBar = () => {
         <nav className="text-left h-full hidden lg:block">
           <ul className="flex flex-col py-7 space-y-4">
             {navLinks.map((item) => (
-              <NavLink
+              <Link
                 to={item.url}
-                className="text-base font-normal  opacity-40 hover:opacity-100 cursor-pointer duration-500"
+                className={mergeClassName(
+                  "text-base font-normal opacity-40 hover:opacity-100 cursor-pointer duration-500",
+                  playlistName[Number(playlistId) - 1] === item.text && 'opacity-100'
+                )}
                 key={item.text}
               >
                 {item.text}
-              </NavLink>
+              </Link>
             ))}
           </ul>
         </nav>
