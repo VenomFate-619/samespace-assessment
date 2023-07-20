@@ -78,7 +78,9 @@ const MusicPlayer = ({ currentSong }: MusicPlayerProps) => {
       <p className="text-[32px] font-bold leading-[36px] text-white max-w-[25ch]">
         {currentSong?.title}
       </p>
-      <p className="text-base text-secondary mt-2 mb-4">{currentSong?.title}</p>
+      <p className="text-base text-secondary mt-2 mb-4">
+        {currentSong?.artist}
+      </p>
       <img
         src={currentSong?.photo}
         alt={currentSong?.title}

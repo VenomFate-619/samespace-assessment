@@ -12,7 +12,7 @@ const Loading = () => {
         <p className="h-3 bg-slate-200 rounded w-32"></p>
       </div>
 
-      <div className="rounded-lg bg-slate-200 lg:w-[480px] w-full lg:h-[440px] max-h-[440px] my-6 h-[350px]"></div>
+      <div className="rounded-lg bg-slate-200 lg:w-[480px] w-full lg:h-[440px] max-h-[440px] my-6 h-[300px]"></div>
       <div className="flex flex-col items-center justify-center">
         <div className="flex items-center w-full">
           <div className="h-2 bg-slate-200 rounded w-10"></div>

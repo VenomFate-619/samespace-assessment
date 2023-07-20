@@ -30,7 +30,9 @@ const MusicCard = ({
           alt={song.title}
         />
         <div className="flex flex-col items-start">
-          <p className="text-lg truncate lg:max-w-[25ch] xs:max-w-[18ch] max-w-[12ch] text-left">{song.title}</p>
+          <p className="text-lg truncate lg:max-w-[25ch] xs:max-w-[17ch] max-w-[12ch] text-left">
+            {song.title}
+          </p>
           <p className="text-secondary text-sm truncate">{song.artist}</p>
         </div>
       </div>
