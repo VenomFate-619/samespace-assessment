@@ -77,3 +77,53 @@ body {
   border-radius: 0;
   clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
 }
+
+.menu {
+  @apply flex flex-col w-[50px] cursor-pointer
+}
+
+.menu span {
+  @apply bg-white rounded-[10px] h-[3px] my-[3px];
+  transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.menu span:nth-of-type(1){
+  @apply w-1/2
+  
+}
+
+.menu span:nth-of-type(2){
+  @apply w-full
+}
+
+
+.menu span:nth-of-type(3){
+  @apply w-3/4
+}
+
+
+input[type="checkbox"]{
+  display:none;
+}
+
+
+input[type="checkbox"]:checked ~ span:nth-of-type(1){
+  transform-origin:bottom;
+  transform:rotatez(45deg) translate(3px,-3px)
+}
+
+
+input[type="checkbox"]:checked ~ span:nth-of-type(2){
+  
+  transform-origin:top;
+  transform:rotatez(-45deg)
+}
+
+
+input[type="checkbox"]:checked ~ span:nth-of-type(3){
+  
+  transform-origin:bottom;
+  width:50%;
+  transform: rotatez(45deg) translate(14px,-15.5px);
+
+}

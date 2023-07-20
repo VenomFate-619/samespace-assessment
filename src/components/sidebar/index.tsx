@@ -44,23 +44,16 @@ const SideBar = () => {
         <div className="h-12 w-12 my-4 hidden lg:block ">
           <img src={profile} alt="profile" />
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-10 w-10  lg:hidden cursor-pointer"
-          onClick={() => {
-            setMenuClick((prev) => !prev);
-          }}
+        <label
+          htmlFor="check"
+          className="menu"
+          
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+          <input type="checkbox" id="check" onChange={() => setMenuClick((prev) => !prev) } />
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
       </div>
     </div>
   );
