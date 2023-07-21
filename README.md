@@ -37,7 +37,7 @@ The background gradient color changes according to the cover image of the song a
   - `TypeScript`
   - `ReactJS`
   - `Graphql`
-  - `Apollo Client
+  - `Apollo Client`
 
 - #### For Styling :
 
