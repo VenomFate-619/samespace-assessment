@@ -37,14 +37,14 @@ The background gradient color changes according to the cover image of the song a
   - `TypeScript`
   - `ReactJS`
   - `Graphql`
-  - `Apollo Client`
+  - `Apollo Client
 
 - #### For Styling :
 
   - `TailwindCss`
   
 - #### For Deploy : -
-  - `vercel`
+  - `Vercel`
 
 ---
 ## FEATURES
@@ -58,5 +58,5 @@ The background gradient color changes according to the cover image of the song a
 | 5         | Fluid and interactive interface with animations/transitions                       |
 | 6         | Functionality includes search, music control, tab change, and music seeker        |
 | 7         | Keyboard accessible |
-| 8         | debounce search |
+| 8         | Debounce search |
 
