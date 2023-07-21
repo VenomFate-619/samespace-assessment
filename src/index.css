@@ -64,7 +64,7 @@ body {
 }
 
 .menu {
-  @apply flex flex-col w-[50px] cursor-pointer;
+  @apply flex flex-col w-[40px] cursor-pointer;
 }
 
 .menu span {
@@ -77,7 +77,7 @@ body {
 }
 
 .menu span:nth-of-type(2) {
-  @apply w-full;
+  @apply w-[90%];
 }
 
 .menu span:nth-of-type(3) {
@@ -90,7 +90,7 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked ~ span:nth-of-type(1) {
   transform-origin: bottom;
-  transform: rotatez(45deg) translate(3px, -3px);
+  transform: rotatez(45deg) translate(4px, 0px);
 }
 
 input[type="checkbox"]:checked ~ span:nth-of-type(2) {
@@ -101,6 +101,6 @@ input[type="checkbox"]:checked ~ span:nth-of-type(2) {
 input[type="checkbox"]:checked ~ span:nth-of-type(3) {
   transform-origin: bottom;
   width: 50%;
-  transform: rotatez(45deg) translate(14px, -15.5px);
+  transform: rotatez(45deg) translate(7px, -12.5px);
 }
 
