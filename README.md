@@ -57,4 +57,6 @@ The background gradient color changes according to the cover image of the song a
 | 4         | Background gradient color changes according to cover image of song                |
 | 5         | Fluid and interactive interface with animations/transitions                       |
 | 6         | Functionality includes search, music control, tab change, and music seeker        |
-| 7         | Keyboard accessible
+| 7         | Keyboard accessible |
+| 8 | debounce search |
+
