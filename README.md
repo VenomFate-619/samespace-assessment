@@ -23,18 +23,18 @@ The background gradient color changes according to the cover image of the song a
 4. Run the following command to run the application:
 
   ```
-  npm start
+  npm run start
   ```
   
 ---
 
-## TECH-STACK💫
+## TECH-STACK
 
 - #### For Frontend :
 
   - `HTML5`
   - `CSS3`
-  - `JavaScript`
+  - `TypeScript`
   - `ReactJS`
   - `Graphql`
   - `Apollo Client`
@@ -43,7 +43,7 @@ The background gradient color changes according to the cover image of the song a
 
   - `TailwindCss`
   
-- #### For live Project : -
+- #### For Deploy : -
   - `vercel`
 
 ---
@@ -58,5 +58,5 @@ The background gradient color changes according to the cover image of the song a
 | 5         | Fluid and interactive interface with animations/transitions                       |
 | 6         | Functionality includes search, music control, tab change, and music seeker        |
 | 7         | Keyboard accessible |
-| 8 | debounce search |
+| 8         | debounce search |
 
